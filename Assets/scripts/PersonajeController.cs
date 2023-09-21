@@ -11,9 +11,15 @@ public class PersonajeScript : MonoBehaviour
 
     private bool mirandoDerecha = true;
 
+    public AudioSource Jump_01;
+
     // Start is called before the first frame update
     void Start()
     {
+        // --------------------------------------------------
+        //this.Jump_01 = GetComponent<AudioSource>();
+        //this.Jump_01 = new AudioSource();
+        // --------------------------------------------------
         this.rigidbody = GetComponent<Rigidbody2D>();
     }
 
@@ -28,6 +34,7 @@ public class PersonajeScript : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
+            this.Jump_01.Play();
             this.rigidbody.AddForce(Vector2.up * this.fuerzaSalto , ForceMode2D.Impulse );
         }
     }
